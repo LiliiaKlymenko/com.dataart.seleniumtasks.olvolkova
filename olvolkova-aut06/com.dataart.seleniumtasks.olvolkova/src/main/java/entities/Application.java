@@ -9,8 +9,6 @@ public class Application {
     private String imageData;
     private String iconData;
 
-
-
     public String getCategory() {
         return category;
     }
