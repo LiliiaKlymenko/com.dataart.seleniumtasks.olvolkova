@@ -9,6 +9,7 @@ import utils.PropertyManager;
 import utils.WebDriverManager;
 
 public class LoginPage extends BasePage {
+    
     @FindBy(id = "j_username")
     private WebElement loginField;
 
@@ -39,7 +40,7 @@ public class LoginPage extends BasePage {
         return new HomePage();
     }
 
-    public RegisterPage openRegisterPage(){
+    public RegisterPage openRegisterPage() {
         registerButton.click();
         return new RegisterPage();
     }
@@ -52,17 +53,16 @@ public class LoginPage extends BasePage {
 
     public HomePage openAndLoginWithBasicAuth(User user) {
         PropertyManager propertyManager = PropertyManager.getInstance();
+        String protocol = propertyManager.loadData("protocol");
         String basicAuth = user.getLogin() + ":" + user.getPassword() + "@";
-        WebDriverManager.getDriver().get(propertyManager.loadData("protocol") + basicAuth + propertyManager.loadData("basicAuthUrl"));
+        String uri = propertyManager.loadData("basicAuthUrl");
+        WebDriverManager.getDriver().get(protocol + basicAuth + uri);
         return new HomePage();
     }
 
     public HomePage openAndLoginWithNoAuth(User user) {
-        PropertyManager propertyManager = PropertyManager.getInstance();
-        String login = user.getLogin();
-        String password = user.getPassword();
         openPage();
-        submitFormWithCredentials(login, password);
+        submitFormWithCredentials(user.getLogin(), user.getPassword());
         return new HomePage();
     }
 
