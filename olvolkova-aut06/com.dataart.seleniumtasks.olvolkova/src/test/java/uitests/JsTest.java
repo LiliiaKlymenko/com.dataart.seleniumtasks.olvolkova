@@ -13,7 +13,7 @@ import utils.TestData;
 public class JsTest extends BaseTest {
 
     @Test
-    public void jsTest() {
+    public void jsWorksCorrectly() {
         User validUser = TestData.getValidUser();
         LoginPage loginPage = new LoginPage();
         HomePage homePage = loginPage.openAndLoginWithNoAuth(validUser);
