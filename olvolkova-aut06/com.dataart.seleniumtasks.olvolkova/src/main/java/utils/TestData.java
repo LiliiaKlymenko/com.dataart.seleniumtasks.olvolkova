@@ -10,8 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-
 public class TestData {
+    
     public static User getValidUser() {
         return new User().withLogin("admin").withPassword("admin");
     }
@@ -28,7 +28,6 @@ public class TestData {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         return beans;
     }
 
@@ -38,7 +37,8 @@ public class TestData {
 
     public static User getUserForRegistration() {
         String password = RandomStringUtils.randomAlphabetic(6);
-        return new User().withLogin(RandomStringUtils.randomAlphabetic(6))
+        return new User()
+            .withLogin(RandomStringUtils.randomAlphabetic(6))
                 .withFirstName(RandomStringUtils.randomAlphabetic(6))
                 .withLastName(RandomStringUtils.randomAlphabetic(6))
                 .withPassword(password)
@@ -46,12 +46,14 @@ public class TestData {
                 .withUserRole(TestEnums.UserRole.DEVELOPER);
     }
 
-    public static Application getDataForNewApp() { return new Application().withTitle("Test1").withDescription("Test");}
+    public static Application getDataForNewApp() { 
+        return new Application()
+            .withTitle(RandomStringUtils.randomAlphabetic(6))
+            .withDescription(RandomStringUtils.randomAlphabetic(6));}
 
-    public static Application newAppWithImage() { return new Application().withTitle("Test2").withDescription("Test")
+    public static Application newAppWithImage() { 
+        return getDataForNewApp()
             .withImageData("C:\\Users\\olvolkova\\Desktop\\Course\\test1.jpg")
             .withIconData("C:\\Users\\olvolkova\\Desktop\\Course\\test1.jpg");}
-
-
 
 }
