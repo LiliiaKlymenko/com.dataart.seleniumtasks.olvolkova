@@ -9,7 +9,7 @@ import utils.WebDriverManager;
 
 import java.util.List;
 
-public class MyApplications extends BasePage {
+public class MyApplicationsPage extends BasePage {
 
     @FindBy(css = "a[href='/new']")
     private WebElement addAppButton;
