@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.BasePage;
 
-public class AjaxTestPage extends BasePage{
+public class AjaxTestPage extends BasePage {
 
     @FindBy(id = "result")
     private WebElement result;
