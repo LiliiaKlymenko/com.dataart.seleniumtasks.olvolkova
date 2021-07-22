@@ -43,7 +43,6 @@ public class HomePage extends BasePage {
         return new JsPage();
     }
 
-
     public String getPageTitle() {
         return title.getText();
     }
@@ -83,6 +82,5 @@ public class HomePage extends BasePage {
         homeButton.click();
         return new HomePage();
     }
-
 
 }
