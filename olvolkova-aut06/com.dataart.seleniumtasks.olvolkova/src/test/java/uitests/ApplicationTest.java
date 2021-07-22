@@ -13,14 +13,15 @@ public class ApplicationTest extends BaseTest{
     @Test
     public void compareAppJson(){
         User validUser = TestData.getValidUser();
-        LoginPage loginPage = new LoginPage();
-        ApplicationPage applicationPage = new ApplicationPage();
-        HomePage homePage = loginPage.openAndLoginWithNoAuth(validUser);
-        homePage.getApplicationPage(3);
+        
+        HomePage homePage = new LoginPage().openAndLoginWithNoAuth(validUser);
+        ApplicationPage applicationPage = homePage.getApplicationPage(3);
+        
         ApplicationJson json = applicationPage.downloadJson();
         applicationPage.backToPreviousPage();
         applicationPage.refreshPage();
         Application application = applicationPage.getApplicationEntity();
+        
         assertEquals(application.getAuthor(), json.getAuthor().getName());
         assertEquals(application.getCategory(), json.getCategory().getTitle());
         assertEquals(application.getDescription(), json.getDescription());
@@ -32,23 +33,28 @@ public class ApplicationTest extends BaseTest{
     public void createApp(){
         User validUser = TestData.getValidUser();
         Application application = TestData.getDataForNewApp();
-        LoginPage loginPage = new LoginPage();
+        
         MyApplications myApplications = new MyApplications();
         HomePage homePage = loginPage.openAndLoginWithNoAuth(validUser);
         homePage.openMyAppPage().openAddAppPage().createApp(application);
         myApplications.openApplicationPage(application.getTitle()).downloadJson();
+        
+        // TODO 'Add verification to the test'
     }
 
     @Test
     public void editApp(){
+        String expectedDescription = "New description";
         User validUser = TestData.getValidUser();
         Application application = TestData.getDataForNewApp();
+        
         LoginPage loginPage = new LoginPage();
-        String expectedDescription = "New description";
         HomePage homePage = loginPage.openAndLoginWithNoAuth(validUser);
         homePage.openMyAppPage().openApplicationPage(application.getTitle()).editApp().updateApp(expectedDescription);
+        
         String actualDescription = homePage.openMyAppPage().openApplicationPage(application.getTitle())
                 .getApplicationEntity().getDescription();
+        
         assertEquals(actualDescription, expectedDescription);
     }
 
@@ -59,6 +65,8 @@ public class ApplicationTest extends BaseTest{
         LoginPage loginPage = new LoginPage();
         HomePage homePage = loginPage.openAndLoginWithNoAuth(validUser);
         homePage.openMyAppPage().openAddAppPage().createApp(application);
+        
+        // TODO 'Add verification to the test'
     }
 
     @Test
@@ -69,18 +77,25 @@ public class ApplicationTest extends BaseTest{
         ApplicationPage applicationPage = new ApplicationPage();
         HomePage homePage = loginPage.openAndLoginWithNoAuth(validUser);
         homePage.openMyAppPage().openAddAppPage().createApp(application);
+                // download #1
         homePage.openMyAppPage().openApplicationPage(application.getTitle()).downloadJson();
         homePage.backToPreviousPage();
+                // download #2
         applicationPage.downloadJson();
         homePage.backToPreviousPage();
+                // download #3
         applicationPage.downloadJson();
         homePage.backToPreviousPage();
+                // download #4
         applicationPage.downloadJson();
         homePage.backToPreviousPage();
+                // download #5
         applicationPage.downloadJson();
         homePage.backToPreviousPage();
         homePage.refreshPage();
         applicationPage.findApp(application.getTitle());
+        
+        // TODO 'Add verification to the test'
     }
 
     @Test
