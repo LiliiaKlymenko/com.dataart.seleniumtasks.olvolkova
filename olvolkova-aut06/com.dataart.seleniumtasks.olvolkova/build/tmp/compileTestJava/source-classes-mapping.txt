@@ -1,0 +1,14 @@
+uitests/ApplicationTest.java
+ uitests.ApplicationTest
+uitests/JsTest.java
+ uitests.JsTest
+uitests/BaseTest.java
+ uitests.BaseTest
+uitests/LogoutTest.java
+ uitests.LogoutTest
+uitests/AjaxTest.java
+ uitests.AjaxTest
+uitests/RegistrationTest.java
+ uitests.RegistrationTest
+uitests/LoginTest.java
+ uitests.LoginTest

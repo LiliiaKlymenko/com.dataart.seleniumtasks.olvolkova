@@ -1,0 +1,41 @@
+testdata/TestEnums.java
+ testdata.TestEnums
+ testdata.TestEnums$UserRole
+pages/NewApplicationAdd.java
+ pages.NewApplicationAdd
+json/ApplicationJson.java
+ json.ApplicationJson
+json/CategoryJson.java
+ json.CategoryJson
+entities/Application.java
+ entities.Application
+json/AuthorJson.java
+ json.AuthorJson
+pages/LoginPage.java
+ pages.LoginPage
+pages/RegisterPage.java
+ pages.RegisterPage
+entities/User.java
+ entities.User
+json/RoleModelJson.java
+ json.RoleModelJson
+pages/ApplicationPage.java
+ pages.ApplicationPage
+utils/JsonUtils.java
+ utils.JsonUtils
+utils/PropertyManager.java
+ utils.PropertyManager
+pages/HomePage.java
+ pages.HomePage
+pages/JsPage.java
+ pages.JsPage
+utils/TestData.java
+ utils.TestData
+utils/WebDriverManager.java
+ utils.WebDriverManager
+pages/AjaxTestPage.java
+ pages.AjaxTestPage
+utils/BasePage.java
+ utils.BasePage
+pages/MyApplications.java
+ pages.MyApplications
