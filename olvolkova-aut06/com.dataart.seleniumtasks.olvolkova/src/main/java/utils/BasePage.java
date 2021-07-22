@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage extends PageFactory {
+    
     public BasePage() {
         initElements(WebDriverManager.getDriver(), this);
     }
@@ -21,7 +22,6 @@ public class BasePage extends PageFactory {
             return false;
         }
     }
-
 
     public void openNewTab() {
         JavascriptExecutor jse = (JavascriptExecutor) WebDriverManager.getDriver();
@@ -50,7 +50,7 @@ public class BasePage extends PageFactory {
         try {
             acceptAlert();
         }
-        catch (Exception e) {
+        catch (Exception ignored) {
         }
     }
 
@@ -60,8 +60,7 @@ public class BasePage extends PageFactory {
     }
 
     public WebElement waitForElement(By selector, int seconds) {
-        WebDriverWait wait;
-        wait = new WebDriverWait(WebDriverManager.getDriver(), seconds);
+        WebDriverWait wait = new WebDriverWait(WebDriverManager.getDriver(), seconds);
         wait.until(ExpectedConditions.presenceOfElementLocated(selector));
         return WebDriverManager.getDriver().findElement(selector);
     }
