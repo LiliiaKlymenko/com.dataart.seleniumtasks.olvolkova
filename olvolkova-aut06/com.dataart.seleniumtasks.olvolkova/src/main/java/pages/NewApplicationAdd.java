@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.BasePage;
 
-public class NewApplicationAdd extends BasePage {
+public class AddApplicationPage extends BasePage {
 
     @FindBy(name = "title")
     private WebElement appTitle;
