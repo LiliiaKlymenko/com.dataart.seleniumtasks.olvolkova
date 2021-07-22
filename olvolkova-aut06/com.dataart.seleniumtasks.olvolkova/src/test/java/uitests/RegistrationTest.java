@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class RegistrationTest extends BaseTest{
+public class RegistrationTest extends BaseTest {
 
     @Test
     public void registrationTest() {
@@ -43,7 +43,6 @@ public class RegistrationTest extends BaseTest{
         HomePage homePage = registerPage.registerFormWithCredentials(newUser);
         assertTrue(homePage.hasAppsContent());
         assertFalse(homePage.hasMyAppButton());
-
     }
 
     @Test
