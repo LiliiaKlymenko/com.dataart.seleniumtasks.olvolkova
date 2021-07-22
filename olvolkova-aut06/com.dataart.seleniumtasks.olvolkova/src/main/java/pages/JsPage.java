@@ -28,7 +28,6 @@ public class JsPage extends BasePage {
         return new JsPage();
     }
 
-
     public double getTopCoordinates() {
         waitForElement(By.cssSelector("div.flash"), 1);
         String top = getElementStyleProperty("flash", "top");
